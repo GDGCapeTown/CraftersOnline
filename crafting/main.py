@@ -11,7 +11,7 @@ from webapp2_extras import routes
 
 from crafting.handlers.home import HomepageHandler
 from crafting.handlers.product import ProductHandler
-from crafting.handlers.auth import LoginHandler, LogoutHandler
+from crafting.handlers.auth import LoginHandler, LogoutHandler, PostLoginHandler
 from crafting.handlers.crafters import CraftersHandler
 from crafting.handlers.admin import AdminHandler, EditCrafterHandler, AddCrafterHandler, DeleteCrafterHandler
 from crafting.handlers.about import AboutHandler
@@ -38,6 +38,7 @@ app = webapp2.WSGIApplication([
 	('/products', ProductsHandler),
 	('/crafters', CraftersHandler),
 	('/login', LoginHandler),
+	('/auth', PostLoginHandler),
 	('/logout', LogoutHandler),
 	('/about', AboutHandler),
 	webapp2.Route(r'/p/<product_id:\d+>', handler=ProductHandler),

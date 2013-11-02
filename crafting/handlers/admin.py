@@ -16,6 +16,10 @@ class AdminHandler(BaseHandler):
 	# Do the normal home render page
 	def get(self):
 
+		user = users.get_current_user()
+		if not user:
+			self.redirect(users.create_login_url(self.request.uri))
+
 		crafters = schema.Crafter.get_all()
 		# Locales
 		locales = {
@@ -27,10 +31,23 @@ class AdminHandler(BaseHandler):
 
 class EditCrafterHandler(BaseHandler):
 	def get(self, id):
-		crafter = schema.Crafter.get_crafter(id)
-		locales = { "crafter" : crafter}
+		user = users.get_current_user()
+		if not user:
+			self.redirect(users.create_login_url(self.request.uri))
+
+		if id != "new":
+			crafter = schema.Crafter.get_crafter(id)
+			locales = { "crafter" : crafter}
+		else:
+			locales = {}
+
 		self.render('editcrafter.html', locales)
+
 	def post(self, id):
+		user = users.get_current_user()
+		if not user:
+			self.redirect(users.create_login_url(self.request.uri))
+
 		request = self.request
 		if id == "new":
 			crafter = schema.Crafter()
@@ -53,11 +70,19 @@ class EditCrafterHandler(BaseHandler):
 
 class AddCrafterHandler(BaseHandler):
 	def get(self):
+		user = users.get_current_user()
+		if not user:
+			self.redirect(users.create_login_url(self.request.uri))
+
 		locales = {}
 		self.render('editcrafter.html', locales)
 
 class DeleteCrafterHandler(BaseHandler):
 	def get(self, id):
+		user = users.get_current_user()
+		if not user:
+			self.redirect(users.create_login_url(self.request.uri))
+
 		crafter = schema.Crafter.get_crafter(id)
 		crafter.key.delete()
 		self.redirect("/admin")

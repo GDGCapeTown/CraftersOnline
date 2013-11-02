@@ -1,5 +1,5 @@
 # Google Libraries
-from google.appengine.ext import db
+from google.appengine.ext import ndb
 from google.appengine.api.logservice import logservice
 from google.appengine.api import users
 from google.appengine.ext import blobstore
@@ -12,17 +12,17 @@ import logging
 # Allowed users who may login
 # @author Johann du Toit
 #
-class AllowedUser(db.Model):
+class AllowedUser(ndb.Model):
 
-	name = db.StringProperty()
-	email = db.StringProperty()
+	name = ndb.StringProperty()
+	email = ndb.StringProperty()
 
-	created = db.DateTimeProperty(auto_now_add=True)
-	lastupdated = db.DateTimeProperty(auto_now_add=True)
+	created = ndb.DateTimeProperty(auto_now_add=True)
+	lastupdated = ndb.DateTimeProperty(auto_now_add=True)
 
-    @staticmethod
-    def get_allowed_users():
+	@staticmethod
+	def get_allowed_users():
 
-        query_obj = AllowedUser.query()
-        return query_obj.fetch()
+		query_obj = AllowedUser.query()
+		return query_obj.fetch()
 
