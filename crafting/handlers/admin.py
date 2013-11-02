@@ -16,10 +16,6 @@ class AdminHandler(BaseHandler):
 	# Do the normal home render page
 	def get(self):
 
-		crafter_obj = schema.Crafter()
-		crafter_obj.name = 'Someone'
-		crafter_obj.put()
-
 		crafters = schema.Crafter.get_all()
 		# Locales
 		locales = {
@@ -36,8 +32,10 @@ class EditCrafterHandler(BaseHandler):
 		self.render('editcrafter.html', locales)
 	def post(self, id):
 		request = self.request
-		crafter = schema.Crafter.get_crafter(id)
-		print request
+		if id == "new":
+			crafter = schema.Crafter()
+		else:
+			crafter = schema.Crafter.get_crafter(id)
 
 		crafter.name = request.get('name')
 		crafter.surname = request.get('surname')
@@ -53,4 +51,8 @@ class EditCrafterHandler(BaseHandler):
 
 		self.redirect("/admin")
 
+class AddCrafterHandler(BaseHandler):
+	def get(self):
+		locales = {}
+		self.render('editcrafter.html', locales)
 

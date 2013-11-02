@@ -1,24 +1,24 @@
-<form name="editcrafter" method="post">
-	Name:	<input name="name" value="{{crafter.name}}" />
+<form name="editcrafter" method="post" {% if crafter %} action="/editcrafter/key={{crafter.key.id()}}" {% else %} action="/editcrafter/key=new" {% endif %}>
+	Name:	<input name="name" {% if crafter %} value="{{crafter.name}}" {% endif %} />
 	<br />
-	Surname:	<input name="surname" value="{{crafter.surname}}" />
+	Surname:	<input name="surname" {% if crafter %} value="{{crafter.surname}}" {% endif %} />
 	<br />
-	About:	<input name="about" value="{{crafter.about}}" />
+	About:	<input name="about" {% if crafter %} value="{{crafter.about}}" {% endif %} />
 	<br />
-	Cell Number:	<input name="cell_number" value="{{crafter.cell_number}}" />
+	Cell Number:	<input name="cell_number" {% if crafter %} value="{{crafter.cell_number}}" {% endif %} />
 	<br />
-	Email:	<input name="email" value="{{crafter.email}}" />
+	Email:	<input name="email" {% if crafter %} value="{{crafter.email}}" {% endif %} />
 	<br />
-	Website:	<input name="website" value="{{crafter.website}}" />
+	Website:	<input name="website" {% if crafter %} value="{{crafter.website}}" {% endif %} />
 	<br />
-	Organization:	<input name="organization" value="{{crafter.organization}}" />
+	Organization:	<input name="organization" {% if crafter %} value="{{crafter.organization}}" {% endif %} />
 	<br />
-	Province:	<input name="province" value="{{crafter.province}}" />
+	Province:	<input name="province" {% if crafter %} value="{{crafter.province}}" {% endif %}/>
 	<br />
-	Suburb:	<input name="suburb" value="{{crafter.suburb}}" />
+	Suburb:	<input name="suburb" {% if crafter %} value="{{crafter.suburb}}" {% endif %} />
 	<br />
-	Town:	<input name="town" value="{{crafter.town}}" />
+	Town:	<input name="town" {% if crafter %} value="{{crafter.town}}" {% endif %} />
 	<br />
-	<input type="submit" value="Save" />
+	<input type="submit" {% if crafter %} value="Save" {% else %} value="Add" {% endif %} />
 </form>
 
