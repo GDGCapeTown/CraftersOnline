@@ -2,6 +2,229 @@
 
 {% block contents %}
 
-	
+
+  <!-- ********************** --> 
+  <!--     I N T R O          -->
+  <!-- ********************** --> 
+
+  <div id="intro">
+    <div id="intro_wrap">
+      <div class="container_12">
+        <h1>{{product_obj.name}}</h1>
+      </div>
+    </div>
+  </div>
+  <!-- end of intro -->
+
+	<!-- ********************** --> 
+  <!--      C O N T E N T     -->
+  <!-- ********************** --> 
+  <div id="content" class="product_view container_16">
+
+    <div id="product" class="grid_12">
+      <div id="product_images" class="grid_6 alpha">
+      	<a id="product_image_preview" rel="prettyPhoto[gallery]" href="/img/product_300x300.jpg"><img id="image" src="/img/product_300x300.jpg" title="Elite Power Camera" alt="Elite Power Camera" /></a>
+      </div>
+      <div id="product_info" class="grid_6 omega">
+        <p class="s_price">{{product_obj.price}}<span class="s_currency s_after"> zar</span></p>
+        <dl class="clearfix">
+          <dt>Availability</dt>
+          <dd>In Stock</dd>
+          <dt>Model</dt>
+          <dd>Product 4</dd>
+          <dt>Manufacturer</dt>
+          <dd><a href="#">Samyong</a></dd>
+          <dt>Average Rating</dt>
+          <dd>
+            <p class="s_rating s_rating_5"><span style="width: 100%;" class="s_percent"></span></p>
+          </dd>
+        </dl>
+        <div id="product_share" class="clearfix">
+          <!-- AddThis Button BEGIN -->
+          <div class="addthis_toolbox addthis_default_style ">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_tweet"></a>
+          <a class="addthis_counter addthis_pill_style"></a>
+          </div>
+          <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4de0eff004042e7a"></script>
+          <!-- AddThis Button END -->
+        </div>
+        <div id="product_buy" class="clearfix">
+          <a id="add_to_cart" style="float:left;" class="s_main_color_bgr"><span class="s_text"><span class="s_icon"></span> Contact</span></a>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="s_tabs grid_12 alpha omega">
+        <div class="s_tab_box">
+        
+          <div id="product_description">
+            <div class="cpt_product_description ">
+              {{product_obj.description}}
+            </div>
+            <!-- cpt_container_end -->
+          </div>
+            
+        </div>
+
+		<br />
+		<br />
+
+        <div class="s_tab_box">
+            
+          <div id="product_gallery">
+            <ul class="s_thumbs clearfix">
+              <li><a class="s_thumb" href="/img/product_300x300.jpg" title="Elite Power Camera" rel="prettyPhoto[gallery]"><img src="/img/product_140x140.jpg" width="120" title="Elite Power Camera" alt="Elite Power Camera" /></a></li>
+              <li><a class="s_thumb" href="/img/product_300x300.jpg" title="Elite Power Camera" rel="prettyPhoto[gallery]"><img src="/img/product_140x140.jpg" width="120" title="Elite Power Camera" alt="Elite Power Camera" /></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div id="related_products" class="grid_12 alpha omega">
+        <h2 class="s_title_1"><span class="s_main_color">Related</span> Products</h2>
+        <div class="clear"></div>
+        <div class="s_grid_view s_listing clearfix">
+          <div class="s_item grid_3">
+          	<a class="s_thumb" href="product.html"><img src="/img/product_140x140.jpg" title="Proffesional Camera" alt="Proffesional Camera" /></a>
+            <h3><a href="product.html">Proffesional Camera</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Contact</span></a>
+          </div>
+          <div class="s_item grid_3">
+          	<a class="s_thumb" href="product.html"><img src="/img/product_140x140.jpg" title="Proffesional Camera" alt="Proffesional Camera" /></a>
+            <h3><a href="product.html">Proffesional Camera</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Contact</span></a>
+          </div>
+          <div class="s_item grid_3">
+          	<a class="s_thumb" href="product.html"><img src="/img/product_140x140.jpg" title="Proffesional Camera" alt="Proffesional Camera" /></a>
+            <h3><a href="product.html">Proffesional Camera</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Contact</span></a>
+          </div>
+          <div class="s_item grid_3">
+          	<a class="s_thumb" href="product.html"><img src="/img/product_140x140.jpg" title="Proffesional Camera" alt="Proffesional Camera" /></a>
+            <h3><a href="product.html">Proffesional Camera</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Contact</span></a>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      
+      <div id="product_tags" class="grid_12 alpha omega">
+        <h2 class="s_title_1"><span class="s_main_color">Product</span> Tags</h2>
+        <div class="clear"></div>
+        <ul class="clearfix">
+          <li><a href="#">Centrino</a></li>
+          <li><a href="#">Intel</a></li>
+          <li><a href="#">VAIO</a></li>
+          <li><a href="#">laptop</a></li>
+          <li><a href="#">notebook</a></li>
+        </ul>
+      </div>
+      
+    </div>
+
+    
+    <div id="right_col" class="grid_3">
+      
+      
+      <div id="bestseller_side" class="s_box clearfix">
+        <h2>Bestsellers</h2>
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="Smartphone 8GB" /></a>
+          <h3><a href="product.html">Smartphone 8GB</a></h3>
+          <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">£</span>587.50</span></a></p>
+        </div>
+        
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="Eau de perfume" /></a>
+          <h3><a href="product.html">Eau de perfume</a></h3>
+          <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">£</span>2,350.00</span></a></p>
+        </div>
+        
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="Proffesional Camera" /></a>
+          <h3><a href="product.html">Proffesional Camera</a></h3>
+          <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">£</span>94.00</span></a></p>
+        </div>
+        
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="Sassyo Camera Zoom" /></a>
+          <h3><a href="product.html">Sassyo Camera Zoom</a></h3>
+          <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">£</span>117.50</span></a></p>
+        </div>
+  
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="French Perfume Amber Woman" /></a>
+          <h3><a href="product.html">French Perfume Amber Woman</a></h3>
+          <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">£</span>328.99</span></a></p>
+        </div>
+  
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="Tablet Classic" /></a>
+          <h3><a href="product.html">Tablet Classic</a></h3>
+          <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">£</span>117.50</span></a></p>
+        </div>
+        
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="Laptop" /></a>
+          <h3><a href="product.html">Laptop</a></h3>
+          <p><a href="product.html"><span class="s_old"><span class="s_currency s_before">£</span>1,175.00</span> <span class="s_secondary_color"><span class="s_currency s_before">£</span>1,057.50</span></a></p>
+          <div class="s_rating_holder clearfix"><p class="s_rating s_rating_small s_rating_5 left"><span style="width: 100%;" class="s_percent"></span></p><span class="left">&nbsp;5/5</span></div>
+        </div>
+  
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="Digital Camera" /></a>
+          <h3><a href="product.html">Digital Camera</a></h3>
+          <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">£</span>117.50</span></a></p>
+        </div>
+    
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="Eau de perfume" /></a>
+          <h3><a href="product.html">Eau de perfume</a></h3>
+          <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">£</span>94.00</span></a></p>
+        </div>
+    
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="Premium French Cognac" /></a>
+          <h3><a href="product.html">Premium French Cognac</a></h3>
+          <p><a href="product.html"><span class="s_old"><span class="s_currency s_before">£</span>1,175.00</span> <span class="s_secondary_color"><span class="s_currency s_before">£</span>1,057.50</span></a></p>
+        </div>
+    
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="French Perfume" /></a>
+          <h3><a href="product.html">French Perfume</a></h3>
+          <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">£</span>94.00</span></a></p>
+        </div>
+    
+        <div class="s_item s_size_1 clearfix">
+          <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="Tourist camera" /></a>
+          <h3><a href="product.html">Tourist camera</a></h3>
+          <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">£</span>117.50</span></a></p>
+        </div>
+      </div>
+    
+      <div id="information_module" class="s_box">
+        <h2>Information</h2>
+        <ul class="s_list_1">
+          <li><a href="static.html">About Shoppica</a></li>
+          <li><a href="static.html">Privacy Policy</a></li>
+          <li><a href="static.html">Terms &amp; Conditions</a></li>
+          <li><a href="contacts.html">Contact Us</a></li>
+          <li><a href="sitemap.html">Site Map</a></li>
+        </ul>
+      </div>
+  
+
+    </div>
+    
+  </div>
+  <!-- end of content -->
 
 {% endblock %}
