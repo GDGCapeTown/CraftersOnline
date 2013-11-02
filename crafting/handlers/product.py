@@ -19,16 +19,37 @@ class ProductHandler(BaseHandler):
 		product_obj = schema.Product.get_by_id( int(product_id) )
 		if product_obj != None:
 
-			# Locales
-			locales = {
+			# get the crafter
+			crafter_obj = None
 
-				"title": product_obj.name,
-				'product_obj': product_obj
+			if product_obj.crafter != None:
+				crafter_obj = product_obj.crafter.get()
 
-			}
+			if crafter_obj != None:
 
-			# Render the template
-			self.render('product.html', locales)
+				# Get other products by the crafter
+				other_products_by_crafter = schema.Product.get_other_by_crafter( product_obj.key, crafter_obj.key, limit=4 )
+
+				# Get the newest products
+				newest_products = schema.Product.get_newest_for_homepage(limit=15)
+
+				# Locales
+				locales = {
+
+					"title": product_obj.name,
+					'product_obj': product_obj,
+					'other_products_by_crafter': other_products_by_crafter,
+					'newest_products': newest_products
+
+				}
+
+				# Render the template
+				self.render('product.html', locales)
+
+			else:
+
+				# back to home !
+				self.redirect('/')
 
 		else:
 

@@ -15,6 +15,7 @@ from crafting.handlers.auth import LoginHandler, LogoutHandler
 from crafting.handlers.crafters import CraftersHandler
 from crafting.handlers.admin import AdminHandler, EditCrafterHandler, AddCrafterHandler
 from crafting.handlers.about import AboutHandler
+from crafting.handlers.crafter import CrafterHandler
 
 # General Config for our web application
 config = {}
@@ -36,9 +37,9 @@ app = webapp2.WSGIApplication([
 	('/logout', LogoutHandler),
 	('/about', AboutHandler),
 	webapp2.Route(r'/p/<product_id:\d+>', handler=ProductHandler),
-	webapp2.Route(r'/c/<crafter_id:\d+>', handler=ProductHandler),
+	webapp2.Route(r'/c/<crafter_id:\d+>', handler=CrafterHandler),
 	webapp2.Route(r'/p/<product_id:\d+>/(\w+)', handler=ProductHandler),
-	webapp2.Route(r'/c/<crafter_id:\d+>/(\w+)', handler=ProductHandler),
+	webapp2.Route(r'/c/<crafter_id:\d+>/(\w+)', handler=CrafterHandler),
 	('/admin', AdminHandler),
 	('/editcrafter/key=(.*)', EditCrafterHandler),
 	('/addcrafter', AddCrafterHandler),
