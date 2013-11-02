@@ -25,7 +25,7 @@ class Crafter(ndb.Model):
 	town = ndb.StringProperty()
 	suburb = ndb.StringProperty()
 	location = ndb.GeoPtProperty()
-	organization = ndb.GeoPtProperty()
+	organization = ndb.StringProperty()
 	active = ndb.BooleanProperty(default=False)
 	lastupdated = ndb.DateTimeProperty(auto_now_add=True)
 	created = ndb.DateTimeProperty(auto_now_add=True)
@@ -48,5 +48,6 @@ class Crafter(ndb.Model):
 
 	@staticmethod
 	def get_crafter(id):
-		crafter = Crafter.get_by_id(id)
+		crafter = Crafter.get_by_id(int(id))
 		return crafter
+

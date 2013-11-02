@@ -34,5 +34,23 @@ class EditCrafterHandler(BaseHandler):
 		crafter = schema.Crafter.get_crafter(id)
 		locales = { "crafter" : crafter}
 		self.render('editcrafter.html', locales)
-	def post(self):
-		pass
+	def post(self, id):
+		request = self.request
+		crafter = schema.Crafter.get_crafter(id)
+		print request
+
+		crafter.name = request.get('name')
+		crafter.surname = request.get('surname')
+		crafter.about = request.get('about')
+		crafter.cell_number = request.get('cell_number	')
+		crafter.email = request.get('email')
+		crafter.website = request.get('website')
+		crafter.organization = request.get('organization')
+		crafter.province = request.get('province')
+		crafter.suburb = request.get('suburb')
+		crafter.town = request.get('town')
+		crafter.put()
+
+		self.redirect("/admin")
+
+
