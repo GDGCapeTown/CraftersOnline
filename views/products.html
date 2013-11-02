@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+
+	<!-- ********************** --> 
+  <!--     I N T R O          -->
+  <!-- ********************** --> 
+
+  <div id="intro">
+    <div id="intro_wrap">
+      <div class="container_12">
+        <h1>Products by Crafters</h1>
+      </div>
+    </div>
+  </div>
+  <!-- end of intro -->
+
+  
+  <!-- ********************** --> 
+  <!--      C O N T E N T     -->
+  <!-- ********************** --> 
+  <div id="content" class="container_12">
+
+    
+    <div id="category" class="grid_12">
+
+      <div class="clear"></div>
+
+      <div class="s_listing s_list_view clearfix">
+
+      	{% for product_obj in products %}
+
+        <div class="s_item clearfix">
+          <div class="grid_3 alpha"> <a class="s_thumb" href="/p/{{product_obj.key.id()}}"><img src="/img/product_180x180.jpg" title="{{product_obj.name}}" alt="{{product_obj.name}}" /></a> </div>
+          <div class="grid_6 omega">
+            <h3><a href="/p/{{product_obj.key.id()}}">{{product_obj.name}}</a></h3>
+            <p class="s_model">{{product_obj.summary}}</p>
+            <p class="s_price"><span class="s_currency s_before">R</span>{{product_obj.price}}</p>
+            <p class="s_description">{{product_obj.description}}</p>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+
+        {% endfor %}
+
+       
+
+      </div>
+      
+      <div class="pagination">
+        <div class="results">Showing 1 to 6 of 6 (1 Pages)</div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+  </div>
+  <!-- end of content -->
+
+{% endblock %}

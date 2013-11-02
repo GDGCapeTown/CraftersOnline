@@ -11,6 +11,8 @@ import os
 import time
 import logging
 
+import crafting.schema as schema
+
 # Setup our Jinja Runner
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader('views'))
 
@@ -58,7 +60,8 @@ class BaseHandler(webapp2.RequestHandler):
 		'keywords': False,
 		'author': False,
 		'errors': [],
-		'current_user': users.get_current_user()
+		'current_user': users.get_current_user(),
+		'categories': schema.Category.get_for_menu()
 
 	}
 

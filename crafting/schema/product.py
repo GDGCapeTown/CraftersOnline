@@ -28,6 +28,15 @@ class Product(ndb.Model):
 	# Returns the event by it's slug
 	#
 	@staticmethod
+	def get_by_filter(category_obj, limit=10,offset=0):
+
+		query_obj = Product.query()
+		return query_obj.fetch(limit=10,offset=0)
+
+	#
+	# Returns the event by it's slug
+	#
+	@staticmethod
 	def get_all_by_crafter(crafter_obj):
 
 		query_obj = Product.query(Product.crafter == crafter_obj)

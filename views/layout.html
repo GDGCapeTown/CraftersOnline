@@ -49,7 +49,6 @@
           {% endif %}
           
           <li><a href="/about">About Us</a></li>
-          <li><a href="/contact">Contact</a></li>
 
           {% if current_user != None %}
 
@@ -68,8 +67,16 @@
       <div id="categories" class="s_nav">
         <ul>
           <li id="menu_home"> <a href="/">Home</a> </li>
-          <li> <a href="/crafters">Local Crafters</a></li>
-          <li> <a href="/products">Local Products</a></li>
+
+          <li> <a href="/crafters">List of Crafters</a></li>
+
+          <li> <a href="/products">All Products</a></li>
+
+          {% for cat_obj in categories %}
+
+            <li> <a href="/products?category={{cat_obj.key.id()}}">{{cat_obj.name}}</a></li>
+
+          {% endfor %}
           
         </ul>
       </div>
@@ -114,21 +121,20 @@ organization.</p>
             </tr>
           </table>
         </div>
-        <div id="twitter" class="grid_3">
-          <h2>Twitter</h2>
-          <ul id="twitter_update_list"><li></li></ul>
-          <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script> 
-          <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/themeburn.json?callback=twitterCallback2&amp;count=2"></script> 
-        </div>
-        <div id="facebook" class="grid_3">
-          <h2>Facebook</h2>
-          <div class="s_widget_holder">
-          <script type="text/javascript">
-            //<![CDATA[
-            document.write('<fb:fan profileid="111188056908" stream="0" connections="6" logobar="0" width="220" css="http://svest.no-ip.org/test/opencart/catalog/view/theme/shoppica//css/facebook.css.php?300"></fb:fan>');
-            //]]>
-          </script>
-          </div>
+        <div id="" class="grid_6">
+          <h2>Social</h2>
+          <!-- Place this tag where you want the widget to render. -->
+          <!-- Place this tag where you want the widget to render. -->
+<div class="g-page" data-width="451" data-href="https://plus.google.com/116835946300653786384" data-layout="landscape" data-showtagline="false" data-rel="publisher"></div>
+
+<!-- Place this tag after the last widget tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
         </div>
         <div class="clear"></div>
       </div>

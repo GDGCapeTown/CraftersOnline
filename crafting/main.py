@@ -16,6 +16,8 @@ from crafting.handlers.crafters import CraftersHandler
 from crafting.handlers.admin import AdminHandler, EditCrafterHandler, AddCrafterHandler
 from crafting.handlers.about import AboutHandler
 from crafting.handlers.crafter import CrafterHandler
+from crafting.handlers.crafters import CraftersHandler
+from crafting.handlers.products import ProductsHandler
 
 # General Config for our web application
 config = {}
@@ -33,6 +35,8 @@ config['webapp2_extras.sessions'] = {
 app = webapp2.WSGIApplication([
 
 	('/', HomepageHandler),
+	('/products', ProductsHandler),
+	('/crafters', CraftersHandler),
 	('/login', LoginHandler),
 	('/logout', LogoutHandler),
 	('/about', AboutHandler),

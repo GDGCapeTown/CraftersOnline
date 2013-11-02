@@ -24,5 +24,5 @@ class Category(ndb.Model):
 	@staticmethod
 	def get_for_menu():
 
-		query_obj = Crafter.query()
+		query_obj = Category.query()
 		return query_obj.fetch()

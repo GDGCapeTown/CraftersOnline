@@ -1,18 +1,31 @@
-import json
+# Google Apis
+from google.appengine.api import users
+from google.appengine.api.logservice import logservice
+from webapp2_extras import sessions
+
+# Custom importing
+from base import BaseHandler
 import crafting.schema as schema
 
-from base import BaseHandler
-
-
+#
+# Acts as the Frontpage when users are not signed in and the dashboard when they are.
+# @author Johann du Toit
+#
 class CraftersHandler(BaseHandler):
+
+    # Do the normal home render page
     def get(self):
-        crafters = []
-        for c in schema.Crafter.get_all():
-            crafters.append({
-                'name': c.name,
-                'surname': c.surname,
-                'about': c.about,
-                'location': c.location,
-            })
-        self.response.headers['Content-Type'] = 'application/json'
-        self.response.out.write(json.dumps(crafters))
+
+        # Get the list for the homepage
+        crafters = schema.Crafter.get_by_filter(None)
+
+        # Locales
+        locales = {
+
+            "title": "Welcome",
+            "crafters": crafters
+
+        }
+
+        # Render the template
+        self.render('crafters.html', locales)

@@ -34,6 +34,15 @@ class Crafter(ndb.Model):
 	# Returns the event by it's slug
 	#
 	@staticmethod
+	def get_by_filter(category_obj, limit=10,offset=0):
+
+		query_obj = Crafter.query()
+		return query_obj.fetch(limit=10,offset=0)
+
+	#
+	# Returns the event by it's slug
+	#
+	@staticmethod
 	def get_for_homepage():
 
 		query_obj = Crafter.query()

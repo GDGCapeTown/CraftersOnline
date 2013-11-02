@@ -10,7 +10,7 @@
   <div id="intro">
     <div id="intro_wrap">
       <div class="container_12">
-        <h1>{{crafter_obj.name}}</h1>
+        <h1>{{crafter_obj.name}} {{crafter_obj.surname}}</h1>
       </div>
     </div>
   </div>
@@ -27,16 +27,14 @@
       </div>
       <div id="product_info" class="grid_6 omega">
         <dl class="clearfix">
-          <dt>Availability</dt>
-          <dd>In Stock</dd>
-          <dt>Model</dt>
-          <dd>Product 4</dd>
-          <dt>Manufacturer</dt>
-          <dd><a href="#">Samyong</a></dd>
-          <dt>Average Rating</dt>
-          <dd>
-            <p class="s_rating s_rating_5"><span style="width: 100%;" class="s_percent"></span></p>
-          </dd>
+          <dt>Website</dt>
+          <dd>{{crafter_obj.website}}</dd>
+          <dt>Town</dt>
+          <dd>{{crafter_obj.town}}</dd>
+          <dt>Province</dt>
+          <dd>{{crafter_obj.province}}</dd>
+          <dt>Registered since</dt>
+          <dd>{{crafter_obj.created}}</dd>
         </dl>
         <div id="product_share" class="clearfix">
           <!-- AddThis Button BEGIN -->
