@@ -16,7 +16,7 @@ class ProductHandler(BaseHandler):
 	# Do the normal home render page
 	def get(self, product_id, product_name=False):
 
-		product_obj = schema.Product.get_by_id(product_id)
+		product_obj = schema.Product.get_by_id( int(product_id) )
 		if product_obj != None:
 
 			# Locales
