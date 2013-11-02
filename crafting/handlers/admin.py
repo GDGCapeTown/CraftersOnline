@@ -56,3 +56,10 @@ class AddCrafterHandler(BaseHandler):
 		locales = {}
 		self.render('editcrafter.html', locales)
 
+class DeleteCrafterHandler(BaseHandler):
+	def get(self, id):
+		crafter = schema.Crafter.get_crafter(id)
+		crafter.key.delete()
+		self.redirect("/admin")
+
+		

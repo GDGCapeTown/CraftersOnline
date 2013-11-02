@@ -41,10 +41,12 @@
         <ul>
 	  		<h2>Crafters online admin console</h2>
       </div>
+          		<a href="/editcrafter/key=new">Add</a>
       {% for crafter in crafters %}
 			<li> 
 				{{crafter.name}} 
           		<a href="/editcrafter/key={{crafter.key.id()}}">Edit</a>
+          		<a href="/deletecrafter/key={{crafter.key.id()}}">Delete</a>
 			</li>
 	  {% endfor %} 
         </ul>
