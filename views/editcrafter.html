@@ -1,24 +1,91 @@
+{% extends "layout_admin.html" %}
+
+{% block contents %}
+
+<!-- ********************** --> 
+  <!--      C O N T E N T     --> 
+  <!-- ********************** --> 
+  <div id="content" class="container_12">
+
+
+
 <form name="editcrafter" method="post" {% if crafter %} action="/editcrafter/key={{crafter.key.id()}}" {% else %} action="/editcrafter/key=new" {% endif %}>
-	Name:	<input name="name" {% if crafter %} value="{{crafter.name}}" {% endif %} />
-	<br />
-	Surname:	<input name="surname" {% if crafter %} value="{{crafter.surname}}" {% endif %} />
-	<br />
-	About:	<input name="about" {% if crafter %} value="{{crafter.about}}" {% endif %} />
-	<br />
-	Cell Number:	<input name="cell_number" {% if crafter %} value="{{crafter.cell_number}}" {% endif %} />
-	<br />
-	Email:	<input name="email" {% if crafter %} value="{{crafter.email}}" {% endif %} />
-	<br />
-	Website:	<input name="website" {% if crafter %} value="{{crafter.website}}" {% endif %} />
-	<br />
-	Organization:	<input name="organization" {% if crafter %} value="{{crafter.organization}}" {% endif %} />
-	<br />
-	Province:	<input name="province" {% if crafter %} value="{{crafter.province}}" {% endif %}/>
-	<br />
-	Suburb:	<input name="suburb" {% if crafter %} value="{{crafter.suburb}}" {% endif %} />
-	<br />
-	Town:	<input name="town" {% if crafter %} value="{{crafter.town}}" {% endif %} />
-	<br />
-	<input type="submit" {% if crafter %} value="Save" {% else %} value="Add" {% endif %} />
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Name</strong></label>
+			<input name="name" {% if crafter %} value="{{crafter.name}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Surname</strong></label>
+			<input name="surname" {% if crafter %} value="{{crafter.surname}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+
+			<label class="required"><strong>About</strong></label> 
+			<textarea name="about">{% if crafter %}{{crafter.about}}{% endif %}</textarea>
+
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Cell Number</strong></label>
+			<input name="cell_number" {% if crafter %} value="{{crafter.cell_number}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>E-Mail</strong></label>
+			<input name="email" {% if crafter %} value="{{crafter.email}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Website</strong></label>
+			<input name="website" {% if crafter %} value="{{crafter.website}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Organization</strong></label>
+			<input name="organization" {% if crafter %} value="{{crafter.organization}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Province</strong></label>
+			<input name="province" {% if crafter %} value="{{crafter.province}}" {% endif %}/>
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Suburb</strong></label>
+			<input name="suburb" {% if crafter %} value="{{crafter.suburb}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Town</strong></label>
+			<input name="town" {% if crafter %} value="{{crafter.town}}" {% endif %} />
+		
+		</div>
+
+		<input type="submit" {% if crafter %} value="Save" {% else %} value="Add" {% endif %} />
+
 </form>
 
+  
+
+  </div>
+{% endblock %}

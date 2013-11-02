@@ -5,8 +5,8 @@
 <title>{{title}} | Crafters Online</title>
 <meta name="description" content="{{description}}" />
 <link rel="stylesheet" type="text/css" href="/css/960.css" media="all" />
-<link rel="stylesheet" type="text/css" href="/css/screen.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="/css/color.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/screen.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/css/color.css" media="all" />
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="/css/ie.css" media="screen" />
 <![endif]-->
@@ -34,9 +34,7 @@
       
       </a> 
 
-       <h3 style="color:#444;float:left;margin-top:65px;margin-left:10px;">eThekwini Community Foundation: Projects</h3>
-    
-    	
+       <h3 style="color:#444;float:left;margin-top:65px;margin-left:10px;">eThekwini Community Admin</h3>
 
       <div id="system_navigation" class="s_nav">
         <ul class="s_list_1 clearfix">
@@ -62,25 +60,20 @@
 
         </ul>
       </div>
+    
 
-      
+      <div class="clearfix"></div>
+
       <div id="categories" class="s_nav">
         <ul>
           <li id="menu_home"> <a href="/">Home</a> </li>
 
-          <li> <a href="/crafters">List of Crafters</a></li>
+          <li> <a href="/admin">Manage Crafters</a></li>
 
-          <li> <a href="/products">All Products</a></li>
-
-          {% for cat_obj in categories %}
-
-            <li> <a href="/products?category={{cat_obj.key.id()}}">{{cat_obj.name}}</a></li>
-
-          {% endfor %}
+          <li> <a href="/products">Manage Products</a></li>
           
         </ul>
       </div>
-    
       
     </div>
   </div>
