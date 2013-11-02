@@ -13,7 +13,7 @@ from crafting.handlers.home import HomepageHandler
 from crafting.handlers.product import ProductHandler
 from crafting.handlers.auth import LoginHandler, LogoutHandler
 from crafting.handlers.crafters import CraftersHandler
-from crafting.handlers.admin import AdminHandler, EditCrafterHandler, AddCrafterHandler
+from crafting.handlers.admin import AdminHandler, EditCrafterHandler, AddCrafterHandler, DeleteCrafterHandler
 from crafting.handlers.about import AboutHandler
 from crafting.handlers.crafter import CrafterHandler
 
@@ -43,6 +43,7 @@ app = webapp2.WSGIApplication([
 	('/admin', AdminHandler),
 	('/editcrafter/key=(.*)', EditCrafterHandler),
 	('/addcrafter', AddCrafterHandler),
+	('/deletecrafter/key=(.*)', DeleteCrafterHandler),
 	('/crafters.json', CraftersHandler),
 
 ], debug=True, config=config)
