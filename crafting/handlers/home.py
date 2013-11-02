@@ -20,6 +20,7 @@ class HomepageHandler(BaseHandler):
 		crafter_obj.name = 'Other Pengiun'
 		crafter_obj.summary = 'Hand Built Wire Pengiun'
 		crafter_obj.price = '100.00'
+		crafter_obj.crafter = schema.Crafter.get_by_id( int(5629499534213120) ).key
 		crafter_obj.description = "It's a real thing. Yes I know ...."
 		# crafter_obj.put()
 

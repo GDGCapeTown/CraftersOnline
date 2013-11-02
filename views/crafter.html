@@ -10,7 +10,7 @@
   <div id="intro">
     <div id="intro_wrap">
       <div class="container_12">
-        <h1>{{product_obj.name}}</h1>
+        <h1>{{crafter_obj.name}}</h1>
       </div>
     </div>
   </div>
@@ -26,7 +26,6 @@
       	<a id="product_image_preview" rel="prettyPhoto[gallery]" href="/img/product_300x300.jpg"><img id="image" src="/img/product_300x300.jpg" title="Elite Power Camera" alt="Elite Power Camera" /></a>
       </div>
       <div id="product_info" class="grid_6 omega">
-        <p class="s_price">{{product_obj.price}}<span class="s_currency s_after"> zar</span></p>
         <dl class="clearfix">
           <dt>Availability</dt>
           <dd>In Stock</dd>
@@ -49,9 +48,6 @@
           <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4de0eff004042e7a"></script>
           <!-- AddThis Button END -->
         </div>
-        <div id="product_buy" class="clearfix">
-          <a id="add_to_cart" style="float:left;" class="s_main_color_bgr"><span class="s_text"><span class="s_icon"></span> Contact</span></a>
-        </div>
       </div>
       <div class="clear"></div>
       <div class="s_tabs grid_12 alpha omega">
@@ -59,7 +55,7 @@
         
           <div id="product_description">
             <div class="cpt_product_description ">
-              {{product_obj.description}}
+              {{crafter_obj.about}}
             </div>
             <!-- cpt_container_end -->
           </div>
@@ -69,39 +65,40 @@
 		<br />
 		<br />
 
-        <div class="s_tab_box">
-            
-          <div id="product_gallery">
-            <ul class="s_thumbs clearfix">
-              <li><a class="s_thumb" href="/img/product_300x300.jpg" title="Elite Power Camera" rel="prettyPhoto[gallery]"><img src="/img/product_140x140.jpg" width="120" title="Elite Power Camera" alt="Elite Power Camera" /></a></li>
-              <li><a class="s_thumb" href="/img/product_300x300.jpg" title="Elite Power Camera" rel="prettyPhoto[gallery]"><img src="/img/product_140x140.jpg" width="120" title="Elite Power Camera" alt="Elite Power Camera" /></a></li>
-            </ul>
+    <div class="s_tab_box">
+        
+          <div id="product_description">
+            <div class="cpt_product_description ">
+              Location Map Here
+            </div>
+            <!-- cpt_container_end -->
           </div>
+            
+        </div>
+
+       
+      </div>
+      
+      <div id="related_products" class="grid_12 alpha omega">
+        <h2 class="s_title_1"><span class="s_main_color">Products</span> by {{crafter_obj.name}}</h2>
+        <div class="clear"></div>
+        <div class="s_grid_view s_listing clearfix">
+
+          {% for prod_obj in crafter_products %}
+
+          <div class="s_item grid_3">
+          	<a class="s_thumb" href="/p/{{prod_obj.key.id()}}"><img src="/img/product_140x140.jpg" title="Proffesional Camera" alt="Proffesional Camera" /></a>
+            <h3><a href="/p/{{prod_obj.key.id()}}">{{prod_obj.name}}</a></h3>
+            <p class="s_model">{{prod_obj.summary}}</p>
+            <p class="s_price">{{prod_obj.price}}<span class="s_currency s_after"> zar</span></p>
+           
+          </div>
+
+          {% endfor %}
+
+          <div class="clear"></div>
         </div>
       </div>
-
-      {% if other_products_by_crafter|length > 0 %}
-      
-	      <div id="related_products" class="grid_12 alpha omega">
-	        <h2 class="s_title_1"><span class="s_main_color">Other</span> Products by the <span class="s_main_color">Crafter</span> </h2>
-	        <div class="clear"></div>
-	        <div class="s_grid_view s_listing clearfix">
-
-				{% for product_obj in other_products_by_crafter %}
-
-					 <div class="s_item grid_3">
-			          	<a class="s_thumb" href="product.html"><img src="/img/product_140x140.jpg" title="Proffesional Camera" alt="Proffesional Camera" /></a>
-			            <h3><a href="/p/{{product_obj.key.id()}}">{{product_obj.name}}</a></h3>
-			            <p class="s_model">{{product_obj.summary}}</p>
-			            <p class="s_price">{{product_obj.price}}<span class="s_currency s_after"> zar</span></p>
-			          </div>
-
-				{% endfor %}
-	          <div class="clear"></div>
-	        </div>
-	      </div>
-
-      {% endif %}
     
       
     </div>
@@ -116,15 +113,14 @@
         {% for product_obj in newest_products %}
 
           <div class="s_item s_size_1 clearfix">
-            <a class="s_thumb" href="product.html"><img src="/img/product_38x38.jpg" width="38" height="38" alt="{{product_obj.name}}" /></a>
-            <h3><a href="product.html">{{product_obj.name}}</a></h3>
-            <p><a href="product.html"><span class="s_main_color"><span class="s_currency s_before">R</span>{{product_obj.price}}</span></a></p>
+            <a class="s_thumb" href="/p/{{product_obj.key.id()}}"><img src="/img/product_38x38.jpg" width="38" height="38" alt="{{product_obj.name}}" /></a>
+            <h3><a href="/p/{{product_obj.key.id()}}">{{product_obj.name}}</a></h3>
+            <p><a href="/p/{{product_obj.key.id()}}"><span class="s_main_color"><span class="s_currency s_before">R</span>{{product_obj.price}}</span></a></p>
           </div>
 
         {% endfor %}
-        
+
       </div>
-    
   
 
     </div>

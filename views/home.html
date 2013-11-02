@@ -11,7 +11,7 @@
 		  {% for crafter_obj in crafters %}
 
           <div style="position: relative;">
-            <h2><a href="product.html">{{crafter_obj.name}} {{crafter_obj.surname}}</a></h2>
+            <h2><a href="/c/{{crafter_obj.key.id()}}">{{crafter_obj.name}} {{crafter_obj.surname}}</a></h2>
             <p class="s_desc"> {{crafter_obj.about}} <div class="s_price_holder">
             </div>
           </div>
