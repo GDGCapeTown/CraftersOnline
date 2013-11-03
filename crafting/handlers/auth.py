@@ -6,13 +6,14 @@ from webapp2_extras import sessions
 # Libraries
 import webapp2
 
+from base import BaseHandler
 from crafting.schema.alloweduser import AllowedUser 
 
 #
 # Login with your Google Account
 # @author Johann du Toit
 #
-class LoginHandler(webapp2.RequestHandler):
+class LoginHandler(BaseHandler):
 	def get(self):
 
 		# Normal Google User Account
@@ -23,14 +24,14 @@ class LoginHandler(webapp2.RequestHandler):
 # Logout from your Google Account
 # @author Johann du Toit
 #
-class LogoutHandler(webapp2.RequestHandler):
+class LogoutHandler(BaseHandler):
 	def get(self):
 
 		# Send to logout
 		self.redirect(users.create_logout_url('/'))
 
 
-class PostLoginHandler(webapp2.RequestHandler):
+class PostLoginHandler(BaseHandler):
     def get(self):
 
         # Normal Google User Account
@@ -48,9 +49,8 @@ class PostLoginHandler(webapp2.RequestHandler):
             self.redirect('/')
 
 
-class FailedLoginHandler(webapp2.RequestHandler):
+class FailedLoginHandler(BaseHandler):
     def get(self):
 
-        template = jinja_environment.get_template('failedlogin.html')
-        self.response.out.write(template.render())
-
+		locales = {}
+		self.render('failedlogin.html', locales)

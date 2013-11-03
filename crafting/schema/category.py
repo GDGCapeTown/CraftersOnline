@@ -26,3 +26,10 @@ class Category(ndb.Model):
 
 		query_obj = Category.query()
 		return query_obj.fetch()
+
+	@staticmethod
+	def get_all():
+
+		query_obj = Category.query()
+		return query_obj.fetch()
+

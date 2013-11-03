@@ -1,0 +1,36 @@
+{% extends "layout_admin.html" %}
+
+{% block contents %}
+
+<!-- ********************** --> 
+  <!--      C O N T E N T     --> 
+  <!-- ********************** --> 
+  <div id="content" class="container_12">
+
+
+
+<form name="edituser" method="post" {% if user %} action="/edituser/key={{user.key.id()}}" {% else %} action="/edituser/key=new" {% endif %}>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Name</strong></label>
+			<input name="name" {% if user %} value="{{user.name}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Email</strong></label>
+			<input name="email" {% if user %} value="{{user.email}}" {% endif %} />
+		
+		</div>
+
+
+		<input type="submit" {% if user %} value="Save" {% else %} value="Add" {% endif %} />
+
+</form>
+
+  
+
+  </div>
+{% endblock %}

@@ -11,13 +11,14 @@ from webapp2_extras import routes
 
 from crafting.handlers.home import HomepageHandler
 from crafting.handlers.product import ProductHandler
-from crafting.handlers.auth import LoginHandler, LogoutHandler, PostLoginHandler
+from crafting.handlers.auth import LoginHandler, LogoutHandler, PostLoginHandler, FailedLoginHandler
 from crafting.handlers.crafters import CraftersHandler
-from crafting.handlers.admin import AdminHandler, EditCrafterHandler, AddCrafterHandler, DeleteCrafterHandler
+from crafting.handlers.admin import AdminHandler, EditCrafterHandler, DeleteCrafterHandler
 from crafting.handlers.about import AboutHandler
 from crafting.handlers.crafter import CrafterHandler
-from crafting.handlers.crafters import CraftersHandler
-from crafting.handlers.products import ProductsHandler
+from crafting.handlers.products import ProductsHandler, EditProductHandler, DeleteProductHandler
+from crafting.handlers.category import CategoriesHandler, EditCategoryHandler, DeleteCategoryHandler
+from crafting.handlers.user import UsersHandler, EditUserHandler, DeleteUserHandler
 
 # General Config for our web application
 config = {}
@@ -35,20 +36,28 @@ config['webapp2_extras.sessions'] = {
 app = webapp2.WSGIApplication([
 
 	('/', HomepageHandler),
-	('/products', ProductsHandler),
-	('/crafters', CraftersHandler),
 	('/login', LoginHandler),
 	('/auth', PostLoginHandler),
+	('/authfailed', FailedLoginHandler),
 	('/logout', LogoutHandler),
+	('/crafters', CraftersHandler),
+	('/editcrafter/key=(.*)', EditCrafterHandler),
+	('/deletecrafter/key=(.*)', DeleteCrafterHandler),
+	('/products', ProductsHandler),
+	('/editproduct/key=(.*)', EditProductHandler),
+	('/deleteproduct/key=(.*)', DeleteProductHandler),
+	('/categories', CategoriesHandler),
+	('/editcategory/key=(.*)', EditCategoryHandler),
+	('/deletecategory/key=(.*)', DeleteCategoryHandler),
+	('/users', UsersHandler),
+	('/edituser/key=(.*)', EditUserHandler),
+	('/deleteuser/key=(.*)', DeleteUserHandler),
 	('/about', AboutHandler),
 	webapp2.Route(r'/p/<product_id:\d+>', handler=ProductHandler),
 	webapp2.Route(r'/c/<crafter_id:\d+>', handler=CrafterHandler),
 	webapp2.Route(r'/p/<product_id:\d+>/(\w+)', handler=ProductHandler),
 	webapp2.Route(r'/c/<crafter_id:\d+>/(\w+)', handler=CrafterHandler),
 	('/admin', AdminHandler),
-	('/editcrafter/key=(.*)', EditCrafterHandler),
-	('/addcrafter', AddCrafterHandler),
-	('/deletecrafter/key=(.*)', DeleteCrafterHandler),
 	('/crafters.json', CraftersHandler),
 
 ], debug=True, config=config)

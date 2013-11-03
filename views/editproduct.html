@@ -1,0 +1,79 @@
+{% extends "layout_admin.html" %}
+
+{% block contents %}
+
+<!-- ********************** --> 
+  <!--      C O N T E N T     --> 
+  <!-- ********************** --> 
+  <div id="content" class="container_12">
+
+
+
+<form name="editproduct" method="post" {% if crafter %} action="/editproduct/key={{product.key.id()}}" {% else %} action="/editproduct/key=new" {% endif %}>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Name</strong></label>
+			<input name="name" {% if product %} value="{{product.name}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Crafter</strong></label>
+			<select name="crafter">
+				{% for crafter in crafters %}
+				<option value="{{crafter.key.id()}}" {% if product %} {% if crafter.key.id() == product.crafter.key.id() %} selected="selected" {% endif %} {% endif %}> {{crafter.name}} </option>
+				{% endfor %}
+			</select>
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Category</strong></label>
+			<select name="category">
+				{% for category in categories %}
+				<option value="{{category.key.id()}}" {% if product %} {% if category.key.id() == product.category.key.id() %} selected="selected" {% endif %} {% endif %}> {{category.name}} </option>
+				{% endfor %}
+			</select>
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Summary</strong></label>
+			<input name="name" {% if product %} value="{{product.summary}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Description</strong></label>
+			<input name="name" {% if product %} value="{{product.description}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Price</strong></label>
+			<input name="name" {% if product %} value="{{product.price}}" {% endif %} />
+		
+		</div>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Materials</strong></label>
+			<input name="name" {% if product %} value="{{product.materials}}" {% endif %} />
+		
+		</div>
+
+
+		<input type="submit" {% if crafter %} value="Save" {% else %} value="Add" {% endif %} />
+
+</form>
+
+  
+
+  </div>
+{% endblock %}

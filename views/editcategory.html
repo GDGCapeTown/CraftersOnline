@@ -1,0 +1,29 @@
+{% extends "layout_admin.html" %}
+
+{% block contents %}
+
+<!-- ********************** --> 
+  <!--      C O N T E N T     --> 
+  <!-- ********************** --> 
+  <div id="content" class="container_12">
+
+
+
+<form name="editcategory" method="post" {% if category %} action="/editcategory/key={{category.key.id()}}" {% else %} action="/editcategory/key=new" {% endif %}>
+
+		<div class="s_row_2 clearfix"> 
+		
+			<label class="required"><strong>Name</strong></label>
+			<input name="name" {% if category %} value="{{category.name}}" {% endif %} />
+		
+		</div>
+
+
+		<input type="submit" {% if category %} value="Save" {% else %} value="Add" {% endif %} />
+
+</form>
+
+  
+
+  </div>
+{% endblock %}

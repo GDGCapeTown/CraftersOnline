@@ -68,15 +68,6 @@ class EditCrafterHandler(BaseHandler):
 
 		self.redirect("/admin")
 
-class AddCrafterHandler(BaseHandler):
-	def get(self):
-		user = users.get_current_user()
-		if not user:
-			self.redirect(users.create_login_url(self.request.uri))
-
-		locales = {}
-		self.render('editcrafter.html', locales)
-
 class DeleteCrafterHandler(BaseHandler):
 	def get(self, id):
 		user = users.get_current_user()
