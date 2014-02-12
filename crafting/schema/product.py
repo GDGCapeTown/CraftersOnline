@@ -23,6 +23,7 @@ class Product(ndb.Model):
 	summary = ndb.StringProperty()
 	description = ndb.TextProperty()
 	price = ndb.StringProperty()
+	image = ndb.BlobKeyProperty()
 
 	#
 	# Returns the event by it's slug

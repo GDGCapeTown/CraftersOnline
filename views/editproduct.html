@@ -9,7 +9,7 @@
 
 
 
-<form name="editproduct" method="post" {% if crafter %} action="/editproduct/key={{product.key.id()}}" {% else %} action="/editproduct/key=new" {% endif %}>
+<form name="editproduct" method="post" {% if product %} action="/editproduct/key={{product.key.id()}}" {% else %} action="/editproduct/key=new" {% endif %}>
 
 		<div class="s_row_2 clearfix"> 
 		
@@ -23,7 +23,7 @@
 			<label class="required"><strong>Crafter</strong></label>
 			<select name="crafter">
 				{% for crafter in crafters %}
-				<option value="{{crafter.key.id()}}" {% if product %} {% if crafter.key.id() == product.crafter.key.id() %} selected="selected" {% endif %} {% endif %}> {{crafter.name}} </option>
+				<option value="{{crafter.key.id()}}" {% if product %} {% if crafter.key.id() == product.crafter.id %} selected="selected" {% endif %} {% endif %}> {{crafter.name}} </option>
 				{% endfor %}
 			</select>
 		
@@ -34,7 +34,7 @@
 			<label class="required"><strong>Category</strong></label>
 			<select name="category">
 				{% for category in categories %}
-				<option value="{{category.key.id()}}" {% if product %} {% if category.key.id() == product.category.key.id() %} selected="selected" {% endif %} {% endif %}> {{category.name}} </option>
+				<option value="{{category.key.id()}}" {% if product %} {% if category.key.id() == product.category.id() %} selected="selected" {% endif %} {% endif %}> {{category.name}} </option>
 				{% endfor %}
 			</select>
 		
@@ -43,33 +43,48 @@
 		<div class="s_row_2 clearfix"> 
 		
 			<label class="required"><strong>Summary</strong></label>
-			<input name="name" {% if product %} value="{{product.summary}}" {% endif %} />
+			<input name="summary" {% if product %} value="{{product.summary}}" {% endif %} />
 		
 		</div>
 
 		<div class="s_row_2 clearfix"> 
 		
 			<label class="required"><strong>Description</strong></label>
-			<input name="name" {% if product %} value="{{product.description}}" {% endif %} />
+			<input name="description" {% if product %} value="{{product.description}}" {% endif %} />
 		
 		</div>
 
 		<div class="s_row_2 clearfix"> 
 		
 			<label class="required"><strong>Price</strong></label>
-			<input name="name" {% if product %} value="{{product.price}}" {% endif %} />
+			<input name="price" {% if product %} value="{{product.price}}" {% endif %} />
 		
 		</div>
 
 		<div class="s_row_2 clearfix"> 
 		
 			<label class="required"><strong>Materials</strong></label>
-			<input name="name" {% if product %} value="{{product.materials}}" {% endif %} />
+			<input name="materials" {% if product %} value="{{product.materials}}" {% endif %} />
 		
 		</div>
 
+        {% if product %}
+        {% if product_image %}
+            <img src={{product_image}} />
+        {% endif %}
 
-		<input type="submit" {% if crafter %} value="Save" {% else %} value="Add" {% endif %} />
+		<div class="s_row_2 clearfix"> 
+	        <a class="btn btn-primary" href="/editproductimage/key={{product.key.id()}}">
+                {% if product_image %}
+                    Change image
+                {% else %}
+                    Upload image
+                {% endif %}
+            </a>	
+		</div>
+        {% endif %}
+
+		<input type="submit" {% if product %} value="Save" {% else %} value="Add" {% endif %} />
 
 </form>
 

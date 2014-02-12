@@ -27,13 +27,13 @@
 
     <div style="margin: 15px;">
 
-  <a href="/edituser/key=new">Add</a>
+  <a class="btn btn-primary" href="/edituser/key=new">Add</a>
   <table style="" class="s_table" width="100%" cellpadding="0" cellspacing="0" border="0"> <tbody><tr> <th>&nbsp;</th> <th style="text-align: left;">Name</th> <th>Created</th> </tr> 
   {% for user in users %}
 
     <tr> 
 
-    <td style="width:140px;"><a class="button small orange" href="/edituser/key={{user.key.id()}}">Edit</a> <a onclick="return confirm('Are you sure you want to delete?');" class="button small red" href="/deleteuser/key={{user.key.id()}}">Delete</a></td> 
+    <td style="width:180px;"><a class="btn btn-primary" href="/edituser/key={{user.key.id()}}">Edit</a> <a class="btn btn-primary" onclick="return confirm('Are you sure you want to delete?');" class="button small red" href="/deleteuser/key={{user.key.id()}}">Delete</a></td> 
 
     <td style="text-align: left;">{{user.name}} {{user.surname}}</td>
 

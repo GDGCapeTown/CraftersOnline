@@ -21,23 +21,25 @@
   <!-- ********************** --> 
   <div id="content" class="container_12">
 
+  <center>
     
     <div id="category" class="grid_12">
 
       <div class="clear"></div>
 
       <div class="s_listing s_list_view clearfix">
-		<a href="/editproduct/key=new">Add</a>
+		<a class="btn btn-primary" href="/editproduct/key=new">Add</a> 
 
-      	{% for product_obj in products %}
+      	{% for product_tuple in product_list %}
 
         <div class="s_item clearfix">
-          <div class="grid_3 alpha"> <a class="s_thumb" href="/p/{{product_obj.key.id()}}"><img src="/img/product_180x180.jpg" title="{{product_obj.name}}" alt="{{product_obj.name}}" /></a> </div>
+           <div><a class="btn btn-primary" href="/editproduct/key={{product_tuple.1.key.id()}}">Edit</a> <a class="btn btn-primary" onclick="return confirm('Are you sure you want to delete?');" class="button small red" href="/deleteproduct/key={{product_tuple.1.key.id()}}">Delete</a></div>
+          <div class="grid_3 alpha"> <a class="s_thumb" href="/p/{{product_tuple.1.key.id()}}"><img {% if product_tuple.0 %} src={{product_tuple.0}} {% else %} src="/img/product_180x180.jpg" {% endif %} title="{{product_tuple.1.name}}" alt="{{product_tuple.1.name}}" /></a> </div>
           <div class="grid_6 omega">
-            <h3><a href="/p/{{product_obj.key.id()}}">{{product_obj.name}}</a></h3>
-            <p class="s_model">{{product_obj.summary}}</p>
-            <p class="s_price"><span class="s_currency s_before">R</span>{{product_obj.price}}</p>
-            <p class="s_description">{{product_obj.description}}</p>
+            <h3><a href="/p/{{product_tuple.1.key.id()}}">{{product_tuple.1.name}}</a></h3>
+            <p class="s_model">{{product_tuple.1.summary}}</p>
+            <p class="s_price"><span class="s_currency s_before">R</span>{{product_tuple.1.price}}</p>
+            <p class="s_description">{{product_tuple.1.description}}</p>
           </div>
         </div>
 
@@ -50,12 +52,13 @@
       </div>
       
       <div class="pagination">
-        <div class="results">Showing 1 to 6 of 6 (1 Pages)</div>
+        <div class="results"></div>
       </div>
       
     </div>
     
     
+  </center>
     
     
   </div>
