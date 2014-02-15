@@ -18,7 +18,7 @@ class ProductsHandler(BaseHandler):
 
     # Do the normal home render page
     def get(self):
-        product_list = ()
+        product_list = tuple()
 
         user = users.get_current_user()
         if not user:
@@ -35,8 +35,8 @@ class ProductsHandler(BaseHandler):
 
             prod_tuple = (prod_image, prod)
 
-            if product_list:
-                product_list = product_list, prod_tuple
+            if len(product_list) != 0:
+                product_list = product_list + (prod_tuple,)
             else:
                 product_list = (prod_tuple,)
 

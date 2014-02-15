@@ -16,32 +16,32 @@ class HomepageHandler(BaseHandler):
 
     # Do the normal home render page
     def get(self):
-
-        crafters_list = ()
+        crafters_list = tuple()
         # Get the list for the homepage
         crafters = schema.Crafter.get_for_homepage()
+
         for crafter in crafters:
-            crafter_struct = (crafter,)
+            crafter_prod_list = ()
+
             products = schema.Product.get_all_by_crafter(crafter.key)
             for product in products:
                 if product.image:
                     prod_struct = (product.key.id(), get_serving_url(product.image, 150))
-                    if len(crafter_struct) == 1:
-                        crafter_struct = crafter_struct, (prod_struct,)
-                    else:
-                        crafter_struct[1] = crafter_struct[1], prod_struct
+                    crafter_prod_list += (prod_struct,)
+                    break
 
-            if not crafters_list:
+            crafter_struct = (crafter, crafter_prod_list)
+            
+            if len(crafters_list) == 0:
                 crafters_list = (crafter_struct,)
             else:
-                crafters_list = crafters_list, crafter_struct
+                crafters_list = crafters_list + (crafter_struct,)
 
-        print crafters_list
         products = schema.Product.get_newest_for_homepage()
 
         # Locales
         locales = {
-            "crafters": crafters,
+            "crafters_list": crafters_list,
             'products': products
         }
 

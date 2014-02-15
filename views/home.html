@@ -2,17 +2,16 @@
 
 {% block contents %}
 
-  {% if crafters|length > 0 %}
+  {% if crafters_list|length > 0 %}
   <div id="intro">
     <div id="intro_wrap">
       <div id="product_intro" class="container_12">
         <div id="product_intro_info" class="grid_5">
 
-		  {% for crafter_obj in crafters %}
-
+		  {% for crafter_set in crafters_list %}
           <div style="position: relative;">
-            <h2><a href="/c/{{crafter_obj.key.id()}}">{{crafter_obj.name}} {{crafter_obj.surname}}</a></h2>
-            <p class="s_desc"> {{crafter_obj.about}} 
+            <h2><a href="/c/{{crafter_set.0.key.id()}}">{{crafter_set.0.name}} {{crafter_set.0.surname}}</a></h2>
+            <p class="s_desc"> {{crafter_set.0.about}} 
             <div class="s_price_holder">
             </div>
           </div>
@@ -23,9 +22,9 @@
         <div id="product_intro_preview">
           <div class="slides_container">
 
-			{% for crafter_obj in crafters %}
+			{% for crafter_set in crafters_list %}
 
-			 <div class="slideItem" style=""><a href="product.html"><img src="/img/product_300x300.jpg" alt="" /></a></div>
+			 <div class="slideItem" style=""><a href="/p/{{crafter_set.1.0.0}}"><img src="{{crafter_set.1.0.1}}" alt="" /></a></div>
 
 			{% endfor %}
 
