@@ -27,7 +27,7 @@ class ProductHandler(BaseHandler):
 				product_image_url = get_serving_url(product_obj.image, 300)
 				product_obj.image_url = product_image_url
 			else:
-				product_obj.image_url = "/img/product_150x150.jpg"
+				product_obj.image_url = "/img/product_300x300.jpg"
 
 			if product_obj.crafter != None:
 				crafter_obj = product_obj.crafter.get()
