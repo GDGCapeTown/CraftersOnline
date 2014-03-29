@@ -39,6 +39,14 @@ class HomepageHandler(BaseHandler):
 
         products = schema.Product.get_newest_for_homepage()
 
+        for product in products:
+            if product.image:
+                product_image_url = get_serving_url(product.image, 150)
+                product.image_url = product_image_url
+            else:
+                product.image_url = "/img/product_180x180.jpg"
+
+
         # Locales
         locales = {
             "crafters_list": crafters_list,

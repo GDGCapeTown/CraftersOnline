@@ -60,7 +60,8 @@
 
 		{% for product_obj in products %}
 
-        <div class="s_item grid_2"> <a class="s_thumb" href="/p/{{product_obj.key.id()}}"><img src="/img/product_140x140.jpg" title="Eau de toilette pour homme" alt="{{product_obj.name}}" /></a>
+
+        <div class="s_item grid_2"> <a class="s_thumb" href="/p/{{product_obj.key.id()}}"><img src={{product_obj.image_url}} title="Eau de toilette pour homme" alt="{{product_obj.name}}" /></a>
           <h3><a href="product.html">{{product_obj.summary}}</a></h3>
           <p class="s_model">{{product_obj.name}}</p>
           <p class="s_price" style="font-size: 14px;"><span style="font-size: 14px;" class="s_currency s_before">R</span>{{product_obj.price}}</p>
