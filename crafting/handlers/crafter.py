@@ -2,6 +2,10 @@
 from google.appengine.api import users
 from google.appengine.api.logservice import logservice
 from webapp2_extras import sessions
+from google.appengine.ext import blobstore
+from google.appengine.ext.webapp import blobstore_handlers
+from google.appengine.api.images import get_serving_url
+
 
 # Custom importing
 from base import BaseHandler
@@ -17,6 +21,8 @@ class CrafterHandler(BaseHandler):
 	def get(self, crafter_id, crafter_name=False):
 		crafter_obj = schema.Crafter.get_by_id( int(crafter_id) )
 		if (crafter_obj != None):
+			if crafter_obj.image:
+				crafter_obj.image_url = get_serving_url(crafter_obj.image, 500)
 			product_by_crafter = schema.Product.get_by_crafter( crafter_obj.key )
 
 			# Get the newest products

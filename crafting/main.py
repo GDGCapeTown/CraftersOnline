@@ -12,7 +12,7 @@ from webapp2_extras import routes
 from crafting.handlers.home import HomepageHandler
 from crafting.handlers.product import ProductHandler
 from crafting.handlers.auth import LoginHandler, LogoutHandler, PostLoginHandler, FailedLoginHandler
-from crafting.handlers.crafters import CraftersHandler
+from crafting.handlers.crafters import CraftersHandler, EditCrafterImageHandler
 from crafting.handlers.admin import AdminHandler, EditCrafterHandler, DeleteCrafterHandler
 from crafting.handlers.about import AboutHandler
 from crafting.handlers.crafter import CrafterHandler
@@ -48,6 +48,8 @@ app = webapp2.WSGIApplication([
 	('/editproduct/key=(.*)', EditProductHandler),
 	('/editproductimage/key=(.*)', EditProductImageHandler),
 	('/editproductimage', EditProductImageHandler),
+	('/editcrafterimage/key=(.*)', EditCrafterImageHandler),
+	('/editcrafterimage', EditCrafterImageHandler),
 	('/deleteproduct/key=(.*)', DeleteProductHandler),
 	('/categories', CategoriesHandler),
 	('/editcategory/key=(.*)', EditCategoryHandler),

@@ -29,6 +29,7 @@ class Crafter(ndb.Model):
 	active = ndb.BooleanProperty(default=False)
 	lastupdated = ndb.DateTimeProperty(auto_now_add=True)
 	created = ndb.DateTimeProperty(auto_now_add=True)
+	image = ndb.BlobKeyProperty()
 
 	#
 	# Returns the event by it's slug

@@ -80,6 +80,21 @@
 			<input name="town" {% if crafter %} value="{{crafter.town}}" {% endif %} />
 		
 		</div>
+		{% if crafter %}
+        {% if crafter.image %}
+            <img src={{crafter_image}} />
+        {% endif %}
+
+		<div class="s_row_2 clearfix"> 
+	        <a class="btn btn-primary" href="/editcrafterimage/key={{crafter.key.id()}}">
+                {% if crafter_image %}
+                    Change image
+                {% else %}
+                    Upload image
+                {% endif %}
+            </a>	
+		</div>
+        {% endif %}
 
 		<input type="submit" {% if crafter %} value="Save" {% else %} value="Add" {% endif %} />
 

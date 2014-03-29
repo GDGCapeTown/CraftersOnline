@@ -1,0 +1,26 @@
+{% extends "layout_admin.html" %}
+
+{% block contents %}
+
+<!-- ********************** --> 
+  <!--      C O N T E N T     --> 
+  <!-- ********************** --> 
+  <div id="content" class="container_12">
+
+  {% if crafter %}
+
+  <center>
+  <form action="{{upload_url}}" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="crafter" value="{{crafter.key.id()}}" />
+    Upload File: 
+    <input type="file" name="image">
+
+   <br /> 
+   <input type="submit" name="submit" value="Submit">
+  </form>
+  </center>
+
+  {% endif %}
+
+  </div>
+{% endblock %}

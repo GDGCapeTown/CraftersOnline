@@ -1,3 +1,4 @@
+Things that need to be done:
 * Add support for crafter profile pics.
 * Products and categories on Homepage should not require auth.
 * Clean up image in slider.
@@ -7,3 +8,4 @@
 * Also in "Product" view, there is a placeholder for "model" - not applicable here. Suggestion: 
   "model" could be turned into summaryd/escription. Other relevant details could be added here as well.
 * Page titles have been fixed, but may need to be reviewed.
+* Does admin console need the standard footer w/ contact details, etc? To save space for dashboard, that could be removed.

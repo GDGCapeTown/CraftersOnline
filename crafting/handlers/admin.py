@@ -2,6 +2,9 @@
 from google.appengine.api import users
 from google.appengine.api.logservice import logservice
 from webapp2_extras import sessions
+from google.appengine.ext import blobstore
+from google.appengine.api.images import get_serving_url
+from google.appengine.ext.webapp import blobstore_handlers	
 
 # Custom importing
 from base import BaseHandler
@@ -37,8 +40,14 @@ class EditCrafterHandler(BaseHandler):
 			self.redirect(users.create_login_url(self.request.uri))
 
 		if id != "new":
+			
 			crafter = schema.Crafter.get_crafter(id)
-			locales = { "crafter" : crafter}
+			if crafter.image:
+				crafter_image = get_serving_url(crafter.image, 150)
+			else:
+				crafter_image = None
+			locales = { "crafter" : crafter,
+						"crafter_image" : crafter_image}
 		else:
 			locales = {}
 
