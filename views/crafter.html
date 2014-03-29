@@ -23,7 +23,7 @@
 
     <div id="product" class="grid_12">
       <div id="product_images" class="grid_6 alpha">
-      	<a id="product_image_preview" rel="prettyPhoto[gallery]" href="/img/product_300x300.jpg"><img id="image" src="/img/product_300x300.jpg" title="Elite Power Camera" alt="Elite Power Camera" /></a>
+      	<a id="product_image_preview" rel="prettyPhoto[gallery]" href="/img/product_300x300.jpg"><img id="image" src="{{crafter_obj.image_url}}" title="Elite Power Camera" alt="Elite Power Camera" /></a>
       </div>
       <div id="product_info" class="grid_6 omega">
         <dl class="clearfix">
@@ -85,7 +85,7 @@
           {% for prod_obj in crafter_products %}
 
           <div class="s_item grid_3">
-          	<a class="s_thumb" href="/p/{{prod_obj.key.id()}}"><img src="/img/product_140x140.jpg" title="Proffesional Camera" alt="Proffesional Camera" /></a>
+          	<a class="s_thumb" href="/p/{{prod_obj.key.id()}}"><img src="{{prod_obj.image_url}}" title="{{prod_obj.name}}" alt="{{prod_obj.name}}" /></a>
             <h3><a href="/p/{{prod_obj.key.id()}}">{{prod_obj.name}}</a></h3>
             <p class="s_model">{{prod_obj.summary}}</p>
             <p class="s_price">{{prod_obj.price}}<span class="s_currency s_after"> zar</span></p>
@@ -111,7 +111,7 @@
         {% for product_obj in newest_products %}
 
           <div class="s_item s_size_1 clearfix">
-            <a class="s_thumb" href="/p/{{product_obj.key.id()}}"><img src="/img/product_38x38.jpg" width="38" height="38" alt="{{product_obj.name}}" /></a>
+            <a class="s_thumb" href="/p/{{product_obj.key.id()}}"><img src="{{product_obj.image_url_small}}" width="38" height="38" alt="{{product_obj.name}}" /></a>
             <h3><a href="/p/{{product_obj.key.id()}}">{{product_obj.name}}</a></h3>
             <p><a href="/p/{{product_obj.key.id()}}"><span class="s_main_color"><span class="s_currency s_before">R</span>{{product_obj.price}}</span></a></p>
           </div>

@@ -31,7 +31,7 @@
       	{% for crafter_obj in crafters %}
 
         <div class="s_item clearfix">
-          <div class="grid_3 alpha"> <a class="s_thumb" href="/c/{{crafter_obj.key.id()}}"><img src="/img/product_180x180.jpg" title="{{crafter_obj.name}}" alt="{{crafter_obj.name}}" /></a> </div>
+          <div class="grid_3 alpha"> <a class="s_thumb" href="/c/{{crafter_obj.key.id()}}"><img src="{{crafter_obj.img_url}}" title="{{crafter_obj.name}}" alt="{{crafter_obj.name}}" /></a> </div>
           <div class="grid_6 omega">
             <h3 style="margin-top: 8px;margin-bottom:15px;"><a href="/c/{{crafter_obj.key.id()}}">{{crafter_obj.name}} {{crafter_obj.surname}}</a></h3>
             <p class="s_description">{{crafter_obj.about}}</p>

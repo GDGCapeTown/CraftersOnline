@@ -21,6 +21,11 @@ class CraftersHandler(BaseHandler):
 
         # Get the list for the homepage
         crafters = schema.Crafter.get_by_filter(None)
+        for crafter in crafters:
+            if crafter.image:
+                crafter.img_url = get_serving_url(crafter.image, 180)
+            else:
+                crafter.img_url = "/img/product_180x180.jpg"
 
         # Locales
         locales = {
