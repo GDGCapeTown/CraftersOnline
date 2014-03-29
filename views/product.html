@@ -23,7 +23,7 @@
 
     <div id="product" class="grid_12">
       <div id="product_images" class="grid_6 alpha">
-      	<a id="product_image_preview" rel="prettyPhoto[gallery]" href="/img/product_300x300.jpg"><img id="image" src="{{product_obj.image_url}}" title="Elite Power Camera" alt="Elite Power Camera" /></a>
+      	<a id="product_image_preview" rel="prettyPhoto[gallery]" href="/img/product_300x300.jpg"><img id="image" src="{{product_obj.image_url}}" title="{{title}}" alt="{{title}}" /></a>
       </div>
       <div id="product_info" class="grid_6 omega">
         <p class="s_price">{{product_obj.price}}<span class="s_currency s_after"> zar</span></p>
@@ -32,8 +32,6 @@
           <dd>In Stock</dd>
           <dt>Model</dt>
           <dd>Product 4</dd>
-          <dt>Manufacturer</dt>
-          <dd><a href="#">Samyong</a></dd>
           <dt>Average Rating</dt>
           <dd>
             <p class="s_rating s_rating_5"><span style="width: 100%;" class="s_percent"></span></p>
