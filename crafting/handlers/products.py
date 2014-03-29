@@ -14,17 +14,40 @@ import crafting.schema as schema
 # Acts as the Frontpage when users are not signed in and the dashboard when they are.
 # @author Johann du Toit
 #
+class ProductsCategoryHandler(BaseHandler):
+
+    def get(self, category_id):
+        product_list = tuple()
+
+        category = schema.Category.get_by_id(int(category_id))
+        products = schema.Product.get_by_category(category)
+
+        for prod in products:
+            if (prod.image):
+                prod_image = get_serving_url(prod.image, 150)
+            else:
+                prod_image = None
+
+            prod_tuple = (prod_image, prod)
+
+            if len(product_list) != 0:
+                product_list = product_list + (prod_tuple,)
+            else:
+                product_list = (prod_tuple,)
+
+        # Locales
+        locales = {
+            'product_list': product_list
+        }
+
+        # Render the template
+        self.render('products.html', locales)
+
 class ProductsHandler(BaseHandler):
 
-    # Do the normal home render page
     def get(self):
         product_list = tuple()
 
-        user = users.get_current_user()
-        if not user:
-            self.redirect(users.create_login_url(self.request.uri))
-
-        # Get the list for the homepage
         products = schema.Product.get_by_filter(None)
 
         for prod in products:

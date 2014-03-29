@@ -16,7 +16,7 @@ from crafting.handlers.crafters import CraftersHandler
 from crafting.handlers.admin import AdminHandler, EditCrafterHandler, DeleteCrafterHandler
 from crafting.handlers.about import AboutHandler
 from crafting.handlers.crafter import CrafterHandler
-from crafting.handlers.products import ProductsHandler, EditProductHandler, DeleteProductHandler, EditProductImageHandler
+from crafting.handlers.products import ProductsHandler, EditProductHandler, DeleteProductHandler, EditProductImageHandler, ProductsCategoryHandler
 from crafting.handlers.category import CategoriesHandler, EditCategoryHandler, DeleteCategoryHandler
 from crafting.handlers.user import UsersHandler, EditUserHandler, DeleteUserHandler
 
@@ -44,6 +44,7 @@ app = webapp2.WSGIApplication([
 	('/editcrafter/key=(.*)', EditCrafterHandler),
 	('/deletecrafter/key=(.*)', DeleteCrafterHandler),
 	('/products', ProductsHandler),
+	('/products/category/(\d+)', ProductsCategoryHandler),
 	('/editproduct/key=(.*)', EditProductHandler),
 	('/editproductimage/key=(.*)', EditProductImageHandler),
 	('/editproductimage', EditProductImageHandler),

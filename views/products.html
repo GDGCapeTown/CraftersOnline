@@ -1,4 +1,10 @@
-{% extends "layout_admin.html" %}
+
+{% if current_user %}
+    {% extends "layout_admin.html" %}
+{% else %}
+    {% extends "layout.html" %}
+{% endif %}
+
 
 {% block contents %}
 
@@ -28,12 +34,17 @@
       <div class="clear"></div>
 
       <div class="s_listing s_list_view clearfix">
+        {% if current_user %}
 		<a class="btn btn-primary" href="/editproduct/key=new">Add</a> 
+        {% endif %}
 
       	{% for product_tuple in product_list %}
 
         <div class="s_item clearfix">
+        {% if current_user %}
            <div><a class="btn btn-primary" href="/editproduct/key={{product_tuple.1.key.id()}}">Edit</a> <a class="btn btn-primary" onclick="return confirm('Are you sure you want to delete?');" class="button small red" href="/deleteproduct/key={{product_tuple.1.key.id()}}">Delete</a></div>
+        {% endif %}
+
           <div class="grid_3 alpha"> <a class="s_thumb" href="/p/{{product_tuple.1.key.id()}}"><img {% if product_tuple.0 %} src={{product_tuple.0}} {% else %} src="/img/product_180x180.jpg" {% endif %} title="{{product_tuple.1.name}}" alt="{{product_tuple.1.name}}" /></a> </div>
           <div class="grid_6 omega">
             <h3><a href="/p/{{product_tuple.1.key.id()}}">{{product_tuple.1.name}}</a></h3>
