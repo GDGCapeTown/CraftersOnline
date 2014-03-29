@@ -19,7 +19,7 @@ class HomepageHandler(BaseHandler):
         crafters_list = tuple()
         # Get the list for the homepage
         crafters = schema.Crafter.get_for_homepage()
-
+        title = "eThekwini Community Foundation"
         for crafter in crafters:
             crafter_prod_list = ()
 
@@ -50,7 +50,8 @@ class HomepageHandler(BaseHandler):
         # Locales
         locales = {
             "crafters_list": crafters_list,
-            'products': products
+            'products': products,
+            'title' : title
         }
 
         # Render the template

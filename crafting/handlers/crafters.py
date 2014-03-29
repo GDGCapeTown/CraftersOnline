@@ -22,7 +22,7 @@ class CraftersHandler(BaseHandler):
         # Locales
         locales = {
 
-            "title": "Welcome",
+            "title": "Crafters",
             "crafters": crafters
 
         }

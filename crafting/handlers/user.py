@@ -26,7 +26,7 @@ class UsersHandler(BaseHandler):
         # Locales
         locales = {
 
-            "title": "Welcome",
+            "title": "Users",
             'users': allowedusers
 
         }

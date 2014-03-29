@@ -25,7 +25,7 @@ class CategoriesHandler(BaseHandler):
         # Locales
         locales = {
 
-            "title": "Welcome",
+            "title": "Categories",
             'categories': categories
 
         }

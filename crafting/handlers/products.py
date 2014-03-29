@@ -40,9 +40,12 @@ class ProductsHandler(BaseHandler):
             else:
                 product_list = (prod_tuple,)
 
+            title = "Products by Crafters"
+
         # Locales
         locales = {
-            'product_list': product_list
+            'product_list': product_list,
+            'title' : title
         }
 
         # Render the template

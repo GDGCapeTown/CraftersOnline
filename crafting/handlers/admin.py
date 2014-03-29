@@ -15,7 +15,7 @@ class AdminHandler(BaseHandler):
 
 	# Do the normal home render page
 	def get(self):
-
+		title = "Admin"
 		user = users.get_current_user()
 		if not user:
 			self.redirect(users.create_login_url(self.request.uri))
@@ -23,7 +23,8 @@ class AdminHandler(BaseHandler):
 		crafters = schema.Crafter.get_all()
 		# Locales
 		locales = {
-			'crafters': crafters
+			'crafters': crafters,
+			'title' : title
 		}
 
 		# Render the template
