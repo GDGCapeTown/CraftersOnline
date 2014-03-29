@@ -24,7 +24,9 @@
 
 			{% for crafter_set in crafters_list %}
 
+             {% if crafter_set.1.0 %}
 			 <div class="slideItem" style=""><a href="/p/{{crafter_set.1.0.0}}"><img src="{{crafter_set.1.0.1}}" alt="" /></a></div>
+             {% endif %}
 
 			{% endfor %}
 
