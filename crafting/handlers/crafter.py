@@ -15,11 +15,8 @@ class CrafterHandler(BaseHandler):
 
 	# Do the normal home render page
 	def get(self, crafter_id, crafter_name=False):
-
 		crafter_obj = schema.Crafter.get_by_id( int(crafter_id) )
-		if crafter_obj != None:
-
-			# Get the newest products
+		if (crafter_obj != None):
 			product_by_crafter = schema.Product.get_by_crafter( crafter_obj.key )
 
 			# Get the newest products
