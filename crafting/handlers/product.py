@@ -2,6 +2,7 @@
 from google.appengine.api import users
 from google.appengine.api.logservice import logservice
 from webapp2_extras import sessions
+from google.appengine.api.images import get_serving_url
 
 # Custom importing
 from base import BaseHandler
@@ -21,6 +22,12 @@ class ProductHandler(BaseHandler):
 
 			# get the crafter
 			crafter_obj = None
+
+			if product_obj.image:
+				product_image_url = get_serving_url(product_obj.image, 300)
+				product_obj.image_url = product_image_url
+			else:
+				product_obj.image_url = "/img/product_150x150.jpg"
 
 			if product_obj.crafter != None:
 				crafter_obj = product_obj.crafter.get()

@@ -1,3 +1,7 @@
 * Add support for crafter profile pics.
 * Products and categories on Homepage should not require auth.
 * Clean up image in slider.
+* App "bugs out" if one submits a product with no category. Perhaps there should be a mechanism which only allows to
+  submit a product which pertains to a valid category (with stored id).
+* In "Product" view, there are placeholders for additional photos, yet currently there is no way to add them. 
+* Also in "Product" view, there are placeholders for "model" and "manufacturer" - not applicable here.
