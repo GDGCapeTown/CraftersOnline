@@ -9,13 +9,16 @@
         <div id="product_intro_info" class="grid_5">
 
 		  {% for crafter_set in crafters_list %}
+          {% if loop.first %}
           <div style="position: relative;">
+          {% else %}
+          <div style="position: relative; display: none">
+          {% endif %}
             <h2><a href="/c/{{crafter_set.0.key.id()}}">{{crafter_set.0.name}} {{crafter_set.0.surname}}</a></h2>
             <p class="s_desc"> {{crafter_set.0.about}} 
             <div class="s_price_holder">
             </div>
           </div>
-
 		  {% endfor %}
 
         </div>
@@ -25,7 +28,7 @@
 			{% for crafter_set in crafters_list %}
 
              {% if crafter_set.1.0 %}
-			 <div class="slideItem" style=""><a href="/p/{{crafter_set.1.0.0}}"><img src="{{crafter_set.1.0.1}}" alt="" /></a></div>
+			 <div class="slideItem" style=""><a href="/p/{{crafter_set.1.0.0}}"><img  width="300" src="{{crafter_set.1.0.1}}" alt="" /></a></div>
              {% endif %}
 
 			{% endfor %}
@@ -37,7 +40,7 @@
       </div>
     </div>
   </div>
-	<script type="text/javascript" src="/js/jquery/jquery.slides.js"></script> 
+  <script type="text/javascript" src="/js/jquery/jquery.slides.js"></script> 
   <script type="text/javascript" src="/js/shoppica.products_slide.js"></script>
   {% endif %}
   
