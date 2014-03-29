@@ -73,9 +73,7 @@
           <li> <a href="/products">All Products</a></li>
 
           {% for cat_obj in categories %}
-
-            <li> <a href="/products?category={{cat_obj.key.id()}}">{{cat_obj.name}}</a></li>
-
+            <li> <a href="/products/category/{{cat_obj.key.id()}}">{{cat_obj.name}}</a></li>
           {% endfor %}
           
         </ul>

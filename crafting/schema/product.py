@@ -29,7 +29,7 @@ class Product(ndb.Model):
 	# Returns the event by it's slug
 	#
 	@staticmethod
-	def get_by_filter(category_obj, limit=10,offset=0):
+	def get_by_filter(limit=10,offset=0):
 
 		query_obj = Product.query()
 		return query_obj.fetch(limit=10,offset=0)
@@ -67,7 +67,7 @@ class Product(ndb.Model):
 	@staticmethod
 	def get_by_category(category_obj, limit=10,offset=0):
 
-		query_obj = Product.query(Product.category.key == category_obj.key)
+		query_obj = Product.query(Product.category== category_obj.key)
 		return query_obj.fetch(limit=10,offset=0)
 
 	#
