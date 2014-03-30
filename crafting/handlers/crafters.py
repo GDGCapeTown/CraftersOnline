@@ -50,7 +50,8 @@ class EditCrafterImageHandler(BaseHandler, blobstore_handlers.BlobstoreUploadHan
         
     def post(self):
         upload_files = self.get_uploads('image')
-        blob_info = upload_files[0]
+        if upload_files[0]:
+            blob_info = upload_files[0]
         crafter = schema.Crafter.get_by_id(int(self.request.get("crafter")))
         if crafter.image:
             blobstore.delete(crafter.image)
