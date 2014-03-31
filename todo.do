@@ -1,12 +1,6 @@
 Things that need to be done:
 
-* Add support for crafter profile pics.
-
-* Products and categories on Homepage should not require auth.
-
 * Clean up image in slider.
-
-
 
 * App "bugs out" if one submits a product with no category. Perhaps there should be a mechanism which only  
   allows to submit a product which pertains to a valid category (with stored id).
@@ -19,13 +13,5 @@ Things that need to be done:
 
 * Page titles have been fixed, but may need to be reviewed.
 
-* Does admin console need the standard footer w/ contact details, etc? To save space for dashboard, that could 
-  be removed.
-  
 * Currently, it is necessary to do a refresh after creating/updating/deleting a record. Is there a way to improve this?
-
-* change contact details, which have changed, to:
-For phone: 083 252 0992 - Kathryn Kure. 
-For email: use the femkathryn@gmail.com
-
 
