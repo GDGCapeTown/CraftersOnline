@@ -23,3 +23,9 @@ Things that need to be done:
   be removed.
   
 * Currently, it is necessary to do a refresh after creating/updating/deleting a record. Is there a way to improve this?
+
+* change contact details, which have changed, to:
+For phone: 083 252 0992 - Kathryn Kure. 
+For email: use the femkathryn@gmail.com
+
+
